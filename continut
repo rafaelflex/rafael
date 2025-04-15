@@ -1,0 +1,19 @@
+<!-- continut.html -->
+<section id="home" class="section">
+    <!-- conținut Acasă -->
+</section>
+<section id="about" class="section hidden">
+    <!-- conținut Despre noi -->
+</section>
+<section id="contact" class="section hidden">
+    <!-- conținut Contact -->
+</section>
+<section id="reservation" class="section hidden">
+    <!-- conținut Rezervă o cursă -->
+</section>
+<section id="login" class="section hidden">
+    <!-- conținut Logare -->
+</section>
+<section id="registration" class="section hidden">
+    <!-- conținut Înregistrare -->
+</section>

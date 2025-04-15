@@ -1,0 +1,7 @@
+<!-- imagini.html -->
+<section id="galerie" class="section hidden">
+    <h2>Galerie Mașini</h2>
+    <img src="imagini/bmw.jpg" alt="BMW" />
+    <img src="imagini/mercedes.jpg" alt="Mercedes" />
+    <!-- adaugă restul -->
+</section>
