@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickRide - Închiriere Mașini</title>
+    <link rel="stylesheet" href="practica.css">
+</head>
+<body>
+
+    <!-- Antetul aplicației -->
+    <header>
+        <div class="logo">
+            <h1>QuickRide</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home" onclick="showSection('home')">Acasă</a></li>
+                <li><a href="#about" onclick="showSection('about')">Despre noi</a></li>
+                <li><a href="#contact" onclick="showSection('contact')">Contact</a></li>
+                <li><a href="#reservation" onclick="showSection('reservation')">Rezervă o cursă</a></li>
+                <li><a href="#login" onclick="showSection('login')">Logare</a></li> <!-- Buton de logare -->
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Secțiuni -->
+    <section id="home" class="section">
+        <h2>Acasă</h2>
+        <p>Bine ai venit la QuickRide, unde poți închiria cele mai bune mașini pentru nevoile tale!</p>
+    </section>
+
+    <section id="about" class="section">
+        <h2>Despre noi</h2>
+        <p>QuickRide este un serviciu de închiriere de mașini de lux, oferind clienților o experiență excelentă la prețuri accesibile.</p>
+    </section>
+
+    <section id="contact" class="section">
+        <h2>Contact</h2>
+        <p>Pentru orice întrebări, nu ezitați să ne contactați la <strong>contact@quickride.com</strong>.</p>
+    </section>
+
+    <section id="reservation" class="section">
+        <h2>Rezervă o cursă</h2>
+        <p>Alege mașina dorită și completează informațiile pentru rezervare.</p>
+
+        <!-- Selectare mașină -->
+        <div class="car-selection">
+            <button class="car-btn" onclick="selectCar('BMW')">BMW</button>
+            <button class="car-btn" onclick="selectCar('Mercedes')">Mercedes</button>
+            <button class="car-btn" onclick="selectCar('Audi')">Audi</button>
+            <button class="car-btn" onclick="selectCar('Lexus')">Lexus</button>
+        </div>
+
+        <!-- Formularele de rezervare -->
+        <div id="carForm" class="hidden">
+            <h3>Completează informațiile pentru rezervare</h3>
+            <form id="reservationForm">
+                <label for="pickupLocation">Localitate plecare:</label>
+                <input type="text" id="pickupLocation" name="pickupLocation" required><br><br>
+
+                <label for="destination">Destinație:</label>
+                <input type="text" id="destination" name="destination" required><br><br>
+
+                <label for="pickupDate">Data plecare:</label>
+                <input type="date" id="pickupDate" name="pickupDate" required><br><br>
+
+                <label for="pickupTime">Ora plecare:</label>
+                <input type="time" id="pickupTime" name="pickupTime" required><br><br>
+
+                <label for="returnTime">Ora întoarcere:</label>
+                <input type="time" id="returnTime" name="returnTime" required><br><br>
+
+                <button type="submit">Rezervă acum</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Secțiunea de logare -->
+    <section id="login" class="section hidden">
+        <h2>Logare</h2>
+        <form id="loginForm">
+            <label for="loginEmail">Email:</label>
+            <input type="email" id="loginEmail" name="loginEmail" required><br><br>
+
+            <label for="loginPassword">Parolă:</label>
+            <input type="password" id="loginPassword" name="loginPassword" required><br><br>
+
+            <button type="submit">Logare</button>
+        </form>
+        <p>Nu ai un cont? <a href="#" onclick="showRegistrationForm()">Înregistrează-te</a></p>
+    </section>
+
+    <!-- Secțiunea de înregistrare -->
+    <section id="registration" class="section hidden">
+        <h2>Înregistrare</h2>
+        <form id="registrationForm">
+            <label for="regEmail">Email:</label>
+            <input type="email" id="regEmail" name="regEmail" required><br><br>
+
+            <label for="regPassword">Parolă:</label>
+            <input type="password" id="regPassword" name="regPassword" required><br><br>
+
+            <label for="regConfirmPassword">Confirmați parola:</label>
+            <input type="password" id="regConfirmPassword" name="regConfirmPassword" required><br><br>
+
+            <button type="submit">Înregistrează-te</button>
+        </form>
+        <p>Ai deja un cont? <a href="#" onclick="showLoginForm()">Loghează-te</a></p>
+    </section>
+
+    <script src="practica.js"></script>
+</body>
+</html>
