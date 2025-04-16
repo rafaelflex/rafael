@@ -20,18 +20,36 @@ function selectCar(carModel) {
   title.textContent = `Rezervă acum o cursă cu ${carModel}`;
 }
 
-// Tratează formularul de rezervare
+
 document.getElementById('reservationForm').addEventListener('submit', function (e) {
   e.preventDefault();
 
   const pickupLocation = document.getElementById('pickupLocation').value;
   const destination = document.getElementById('destination').value;
-  const pickupDate = document.getElementById('pickupDate').value;
-  const pickupTime = document.getElementById('pickupTime').value;
-  const returnTime = document.getElementById('returnTime').value;
+  const pickupDate = new Date(document.getElementById('pickupDate').value);
+  const returnDate = new Date(document.getElementById('returnDate').value);
+  const pricePerDay = parseFloat(document.getElementById("pricePerDay").value);
 
-  alert(`Rezervare făcută cu succes!\nDetalii:\nLocalitate plecare: ${pickupLocation}\nDestinație: ${destination}\nData plecare: ${pickupDate}\nOra plecare: ${pickupTime}\nOra întoarcere: ${returnTime}`);
+  if (isNaN(pickupDate.getTime()) || isNaN(returnDate.getTime())) {
+    alert("Selectează date valide pentru plecare și întoarcere.");
+    return;
+  }
+
+  const days = Math.ceil((returnDate - pickupDate) / (1000 * 60 * 60 * 24));
+
+  if (days <= 0) {
+    alert("Data de întoarcere trebuie să fie după data de plecare.");
+    return;
+  }
+
+  const totalCost = days * pricePerDay;
+  document.getElementById("totalCost").value = totalCost + " €";
+
+  alert(`Rezervare făcută cu succes!\nLocalitate plecare: ${pickupLocation}\nDestinație: ${destination}\nDe la: ${pickupDate.toLocaleDateString()} până la: ${returnDate.toLocaleDateString()}\nPreț pe zi: ${pricePerDay} €\nZile: ${days}\nCost total: ${totalCost} €`);
 });
+
+
+
 
 // Funcții pentru logare și înregistrare
 function showLoginForm() {
@@ -97,4 +115,11 @@ document.getElementById('registrationForm').addEventListener('submit', function 
   }
 
   alert(`Înregistrare reușită!\nEmail: ${email}\nParolă: ${password}`);
+});
+window.addEventListener("DOMContentLoaded", function () {
+  fetch("footer.html")
+      .then(response => response.text())
+      .then(data => {
+          document.getElementById("footer").innerHTML = data;
+      });
 });

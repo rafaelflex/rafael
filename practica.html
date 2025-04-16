@@ -6,6 +6,7 @@
     <title>QuickRide - Închiriere Mașini</title>
     <link rel="stylesheet" href="practica.css">
 </head>
+
 <body>
 
     <!-- Antetul aplicației -->
@@ -51,7 +52,6 @@
             <button class="car-btn" onclick="selectCar('Audi')">Audi</button>
             <button class="car-btn" onclick="selectCar('Lexus')">Lexus</button>
         </div>
-
         <!-- Formularele de rezervare -->
         <div id="carForm" class="hidden">
             <h3>Completează informațiile pentru rezervare</h3>
@@ -64,13 +64,20 @@
 
                 <label for="pickupDate">Data plecare:</label>
                 <input type="date" id="pickupDate" name="pickupDate" required><br><br>
-
-                <label for="pickupTime">Ora plecare:</label>
-                <input type="time" id="pickupTime" name="pickupTime" required><br><br>
-
-                <label for="returnTime">Ora întoarcere:</label>
-                <input type="time" id="returnTime" name="returnTime" required><br><br>
-
+                
+                <label for="returnDate">Data întoarcere:</label>
+                <input type="date" id="returnDate" name="returnDate" required><br><br>
+                
+                <label for="pricePerDay">Preț pe zi (€):</label>
+                <select id="pricePerDay" required>
+                    <option value="25">25 €/zi</option>
+                    <option value="35">35 €/zi</option>
+                    <option value="50">50 €/zi</option>
+                </select><br><br>
+                
+                <input type="text" id="totalCost" readonly placeholder="Cost total (€)">
+                
+                
                 <button type="submit">Rezervă acum</button>
             </form>
         </div>
@@ -110,5 +117,14 @@
     </section>
 
     <script src="practica.js"></script>
+    <script>
+        // Încarcă footer.html în placeholder
+        fetch("footer.html")
+          .then(response => response.text())
+          .then(data => {
+            document.getElementById("footer-placeholder").innerHTML = data;
+          });
+      </script>
+<div id="footer-placeholder"></div>  
 </body>
 </html>
